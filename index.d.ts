@@ -11,6 +11,7 @@
  * Accepts formatted values like `000.000.000-00` as well as unformatted `00000000000`.
  */
 export function validate(value: string): boolean;
+export function generate(): string
 
 /**
  * Default export: an object containing the library utilities.
@@ -18,6 +19,7 @@ export function validate(value: string): boolean;
 declare const CPF: {
   /** Validate a CPF string */
   validate(value: string): boolean;
+  generate(): string
 };
 
 export default CPF;
