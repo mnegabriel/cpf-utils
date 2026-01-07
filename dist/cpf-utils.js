@@ -1,22 +1,30 @@
 function u(e) {
-  const t = e.replace(/\D/g, "");
-  return t.length !== 11 || c(t) ? !1 : l(t, 9) && l(t, 10);
+  const t = e.length;
+  if (t < 9 || t > 10) throw new Error("sumCpfDigits - invalid amount of digits");
+  return e.split("").reduce(
+    (i, n, o) => i + Number(n) * (t + 1 - o),
+    0
+  );
 }
-function c(e) {
+function l(e) {
+  const t = e * 10 % 11;
+  return t > 9 ? 0 : t;
+}
+function a(e) {
   return new Set(e.split("")).size < 2;
 }
-function l(e, t) {
-  const a = e[t];
-  let i = e.slice(0, t).split("").reduce(
-    (n, r, o) => n + Number(r) * (t + 1 - o),
-    0
-  ) * 10 % 11;
-  return i > 9 && (i = 0), Number(a) === i;
+function s(e) {
+  const t = e.replace(/\D/g, "");
+  return t.length !== 11 || a(t) ? !1 : r(t, 9) && r(t, 10);
 }
-const f = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+function r(e, t) {
+  const i = e[t], n = u(e.slice(0, t));
+  return Number(i) === l(n);
+}
+const c = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  validate: u
+  validate: s
 }, Symbol.toStringTag, { value: "Module" }));
 export {
-  f as default
+  c as default
 };
