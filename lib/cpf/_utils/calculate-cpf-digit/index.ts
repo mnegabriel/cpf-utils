@@ -1,0 +1,1 @@
+export { calculateCpfDigit } from "./calculate-cpf-digit"

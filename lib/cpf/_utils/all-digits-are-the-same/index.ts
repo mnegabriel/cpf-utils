@@ -1,0 +1,1 @@
+export { allDigitsAreTheSame } from "./all-digits-are-the-same"

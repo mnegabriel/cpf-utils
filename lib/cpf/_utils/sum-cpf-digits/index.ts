@@ -1,0 +1,1 @@
+export { sumCpfDigits } from "./sum-cpf-digits"
