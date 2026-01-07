@@ -5,9 +5,33 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+
+    <style>
+      html, body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .field {
+        display:grid;
+        gap:4px;
+      }
+
+      .error-message {
+        color: brown;
+      }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div class="field">
+      <label for="cpf">CPF</label>
+      <input type="text" id="cpf">
+      <span class="error-message" style="display: none;">CPF inválido</span>
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
