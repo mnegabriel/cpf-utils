@@ -1,30 +1,37 @@
-function u(e) {
-  const t = e.length;
-  if (t < 9 || t > 10) throw new Error("sumCpfDigits - invalid amount of digits");
-  return e.split("").reduce(
-    (i, n, o) => i + Number(n) * (t + 1 - o),
+function o(t) {
+  const i = t.length;
+  if (i < 9 || i > 10) throw new Error("sumCpfDigits - invalid amount of digits");
+  return t.split("").reduce(
+    (n, e, r) => n + Number(e) * (i + 1 - r),
     0
   );
 }
-function l(e) {
-  const t = e * 10 % 11;
-  return t > 9 ? 0 : t;
+function s(t) {
+  const i = t * 10 % 11;
+  return i > 9 ? 0 : i;
 }
-function a(e) {
-  return new Set(e.split("")).size < 2;
+function c(t) {
+  return new Set(t.split("")).size < 2;
 }
-function s(e) {
-  const t = e.replace(/\D/g, "");
-  return t.length !== 11 || a(t) ? !1 : r(t, 9) && r(t, 10);
+function l(t) {
+  const i = t.replace(/\D/g, "");
+  return i.length !== 11 || c(i) ? !1 : a(i, 9) && a(i, 10);
 }
-function r(e, t) {
-  const i = e[t], n = u(e.slice(0, t));
-  return Number(i) === l(n);
+function a(t, i) {
+  const n = t[i], e = o(t.slice(0, i));
+  return Number(n) === s(e);
 }
-const c = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+function u() {
+  const t = String(Math.random()).slice(2, 11);
+  if (c(t)) return u();
+  const i = o(t), n = s(i), e = o(`${t}${n}`), r = s(e), g = `${t}${n}${r}`;
+  return l(t) ? u() : g;
+}
+const f = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  validate: s
+  generate: u,
+  validate: l
 }, Symbol.toStringTag, { value: "Module" }));
 export {
-  c as default
+  f as default
 };
