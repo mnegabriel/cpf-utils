@@ -12,14 +12,16 @@
  */
 export function validate(value: string): boolean;
 export function generate(): string
+export function format(value: string): string
 
 /**
  * Default export: an object containing the library utilities.
- */
+*/
 declare const CPF: {
   /** Validate a CPF string */
   validate(value: string): boolean;
   generate(): string
+  format(value: string): string
 };
 
 export default CPF;

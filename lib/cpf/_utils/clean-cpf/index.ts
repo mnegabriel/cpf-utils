@@ -1,0 +1,1 @@
+export { cleanCpf } from "./clean-cpf"

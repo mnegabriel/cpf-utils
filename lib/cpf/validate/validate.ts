@@ -1,7 +1,12 @@
-import { allDigitsAreTheSame, calculateCpfDigit, sumCpfDigits } from "../_utils"
+import {
+    allDigitsAreTheSame,
+    calculateCpfDigit,
+    cleanCpf,
+    sumCpfDigits
+} from "../_utils"
 
 export function validate(value: string): boolean {
-    const cleanValue = value.replace(/\D/g, "")
+    const cleanValue = cleanCpf(value)
 
     if (cleanValue.length !== 11 || allDigitsAreTheSame(cleanValue)) return false
 
